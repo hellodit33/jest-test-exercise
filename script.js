@@ -8,6 +8,12 @@ class Icecream {
 
 const add = (num1, num2) => num1 + num2;
 
+//Tillägg - Nike
+const sum = (sum1, sum2) => sum1 + sum2;
+const numbers = {
+  isNull: () => null
+}
+
 function addToShoppingList(shoppingList, newItem) {
   shoppingList.push(newItem);
   return shoppingList;
@@ -27,4 +33,4 @@ const fetchData = async (id) => {
 
 console.log(fetchData(11));
 
-module.exports = { Icecream, add, addToShoppingList, fetchData };
+module.exports = { Icecream, add, sum, numbers, addToShoppingList, fetchData };
