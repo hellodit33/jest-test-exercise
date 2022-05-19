@@ -1,63 +1,82 @@
 const { default: axios } = require('axios');
-const { Icecream, add, sum, numbers, addToShoppingList, fetchData, toRovarSprak } = require('./script');
+const {
+  Icecream,
+  add,
+  sum,
+  numbers,
+  addToShoppingList,
+  fetchData,
+  toRovarSprak,
+  removeFormShoppingList,
+} = require('./script');
 
 describe('Testing Icecream-class', () => {
-    test('returns a object from class', () => {
-        const lakritsPuck = new Icecream('puck', 'lakrits');
-        expect(lakritsPuck).toEqual({
-            flavor: 'lakrits',
-            name: 'puck',
-        });
+  const lakritsPuck = new Icecream('puck', 'lakrits', 25);
+  test('returns a object from class', () => {
+    expect(lakritsPuck).toEqual({
+      flavor: 'lakrits',
+      name: 'puck',
+      price: 25,
     });
+  });
+  test('change the price of the icecream', () => {
+    lakritsPuck.updatePrice(27);
+    expect(lakritsPuck.price).toBe(27);
+  });
 });
 
 test('Adds 10+10 to NOT equal 50', () => {
-    expect(add(10, 10)).not.toBe(50);
+  expect(add(10, 10)).not.toBe(50);
 });
 
 //Tillägg - Nike
 describe('Testing to add and compare numbers', () => {
-    test('Should add 5 + 8 to equal 13', () => {
-        const result = sum(5, 8);
-        expect(result).toBe(13);
-        expect(result).toBeLessThan(25);
-    });
+  test('Should add 5 + 8 to equal 13', () => {
+    const result = sum(5, 8);
+    expect(result).toBe(13);
+    expect(result).toBeLessThan(25);
+  });
 });
 
 test('Should be null', () => {
-    expect(numbers.isNull()).toBeNull();
+  expect(numbers.isNull()).toBeNull();
 });
 
-//Tar bort då exemplet är likt det i dokumentationen. 
+//Tar bort då exemplet är likt det i dokumentationen.
 describe.skip('Handle shopping list', () => {
-    const shoppingList = ['bread', 'milk', 'butter'];
-    test.skip('add rice to shopping list', () => {
-        expect(addToShoppingList(shoppingList, 'rice')).toContain('rice');
-    });
+  const shoppingList = ['bread', 'milk', 'butter'];
+  test.skip('add rice to shopping list', () => {
+    expect(addToShoppingList(shoppingList, 'rice')).toContain('rice');
+  });
+  test('remove item from shoppinglist', () => {
+    expect(removeFormShoppingList(shoppingList, 'milk')).not.toContain('milk');
+  });
 });
 
 //Martina
 
 describe('Lets test rovarspraket', () => {
-    test('Translate with capital letter', () => {
-        expect(toRovarSprak("Martina")).toBe("Momarortotinona");
-    });
-    test('Translate without capital letter', () => {
-        expect(toRovarSprak("erik")).toBe("erorikok");
-    });
-    test('Translate with special characters', () => {
-        expect(toRovarSprak("Björn-Olav")).toBe("Bobjojörornon-Ololavov");
-    });
+  test('Translate with capital letter', () => {
+    expect(toRovarSprak('Martina')).toBe('Momarortotinona');
+  });
+  test('Translate without capital letter', () => {
+    expect(toRovarSprak('erik')).toBe('erorikok');
+  });
+  test('Translate with special characters', () => {
+    expect(toRovarSprak('Björn-Olav')).toBe('Bobjojörornon-Ololavov');
+  });
 });
 
+// Testing api request that returns user matching passed id
 describe('Testing api-requests', () => {
-    test('Should return user', async() => {
-        const user = await fetchData(1);
-        expect(user.id).toBe(1);
-    });
-    test('Should return error', async() => {
-        const user = await fetchData(11);
-        console.log(user);
-        expect(user).toBeNull();
-    });
+  test('Should return user', async () => {
+    const user = await fetchData(1);
+    expect(user.id).toBe(1);
+  });
+  test('Should return error', async () => {
+    // passing an id that does not exist
+    const user = await fetchData(11);
+    console.log(user);
+    expect(user).toBeNull();
+  });
 });
