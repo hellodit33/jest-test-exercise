@@ -27,11 +27,8 @@ describe('Testing Icecream-class', () => {
   });
 });
 
-test('Adds 10+10 to NOT equal 50', () => {
-  expect(add(10, 10)).not.toBe(50);
-});
 
-//Tillägg - Nike
+//Testing numbers with diffrent methods; sum, toBe and toBeLessThan
 describe('Testing to add and compare numbers', () => {
   test('Should add 5 + 8 to equal 13', () => {
     const result = sum(5, 8);
@@ -39,10 +36,16 @@ describe('Testing to add and compare numbers', () => {
     expect(result).toBeLessThan(25);
   });
 });
-
+//Testing isNull and toBeNull, an empty or unknown value
 test('Should be null', () => {
   expect(numbers.isNull()).toBeNull();
 });
+//Testing to add two numbers NOT to equal
+//(Maybe this could be included in this part of the code? ---- Elodie?)
+test('Adds 10+10 to NOT equal 50', () => {
+  expect(add(10, 10)).not.toBe(50);
+});
+
 
 //Tar bort då exemplet är likt det i dokumentationen.
 describe.skip('Handle shopping list', () => {

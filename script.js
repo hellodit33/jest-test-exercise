@@ -9,13 +9,17 @@ class Icecream {
   }
 }
 
-const add = (num1, num2) => num1 + num2;
 
-//Tillägg - Nike
+
+//Script for testing numbers
 const sum = (sum1, sum2) => sum1 + sum2;
 const numbers = {
   isNull: () => null,
 };
+
+const add = (num1, num2) => num1 + num2;
+
+
 
 function addToShoppingList(shoppingList, newItem) {
   shoppingList.push(newItem);
