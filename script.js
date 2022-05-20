@@ -55,6 +55,13 @@ function toRovarSprak(namn) {
   return resultat;
 }
 
+//Elodie
+function cloneArray(array) {
+  return [...array];
+}
+
+let programmingLanguages = ['python', 'php', 'javascript', 'c#', 'R', 'swift'];
+
 module.exports = {
   Icecream,
   add,
@@ -64,4 +71,6 @@ module.exports = {
   removeFormShoppingList,
   fetchData,
   toRovarSprak,
+  cloneArray,
+  programmingLanguages,
 };

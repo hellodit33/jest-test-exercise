@@ -8,6 +8,8 @@ const {
   fetchData,
   toRovarSprak,
   removeFormShoppingList,
+  cloneArray,
+  programmingLanguages,
 } = require('./script');
 
 describe('Testing Icecream-class', () => {
@@ -78,5 +80,32 @@ describe('Testing api-requests', () => {
     const user = await fetchData(11);
     console.log(user);
     expect(user).toBeNull();
+  });
+});
+
+//Test to check if the array is cloned properly
+describe('testing if it clones the array', () => {
+  test('properly clones array', () => {
+    const array = [1, 2, 3];
+    //checking that the cloned array is properly cloned
+    expect(cloneArray(array)).toEqual(array);
+  });
+  //checking that it created a clone of the array and that it's not the array but the cloned we're dealing with
+  test('not the same array but a cloned one', () => {
+    const array = [1, 2, 3];
+    expect(cloneArray(array)).not.toBe(array);
+  });
+});
+
+//test to check the length of an array and to check it added a programming language to the array
+describe('programming languages array', () => {
+  test('should have initial length of 6', () => {
+    expect(programmingLanguages.length).toBe(6);
+  });
+  test('add Kotlin to the end of the array', () => {
+    programmingLanguages.push('Kotlin');
+    expect(programmingLanguages[programmingLanguages.length - 1]).toBe(
+      'Kotlin'
+    );
   });
 });
