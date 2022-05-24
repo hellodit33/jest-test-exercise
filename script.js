@@ -1,15 +1,17 @@
+// importing axios for fetching
 const axios = require('axios');
 
+// class to contruct icecream-object from
 class Icecream {
+  //constructor method that accepts attributes
   constructor(name, flavor, price) {
     (this.name = name), (this.flavor = flavor), (this.price = price);
   }
+  // method that updates price-attribute
   updatePrice(newPrice) {
     this.price = newPrice;
   }
 }
-
-
 
 //Script for testing numbers
 const sum = (sum1, sum2) => sum1 + sum2;
@@ -19,23 +21,26 @@ const numbers = {
 
 const add = (num1, num2) => num1 + num2;
 
-
-
 function addToShoppingList(shoppingList, newItem) {
   shoppingList.push(newItem);
   return shoppingList;
 }
 
+// fuction that accepts an array and returns it with second argument
+// filterd out
 function removeFormShoppingList(shoppingList, item) {
   return shoppingList.filter((itemInCart) => itemInCart !== item);
 }
 
+// async function that does an api request to jsonplacholder
+// returns a user corresponding with id sent as an argument
 const fetchData = async (id) => {
   let result;
   try {
     result = await axios.get(
       `https://jsonplaceholder.typicode.com/users/${id}`
     );
+    // returns
     return result.data;
   } catch (err) {
     return null;
@@ -66,6 +71,7 @@ function cloneArray(array) {
 
 let programmingLanguages = ['python', 'php', 'javascript', 'c#', 'R', 'swift'];
 
+// exporting all functions in an object
 module.exports = {
   Icecream,
   add,
