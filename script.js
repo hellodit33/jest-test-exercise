@@ -1,5 +1,5 @@
 // importing axios for fetching
-const axios = require('axios');
+const axios = require("axios");
 
 // class to contruct icecream-object from
 class Icecream {
@@ -19,6 +19,7 @@ const numbers = {
   isNull: () => null,
 };
 
+//an arrow function to add two numbers
 const add = (num1, num2) => num1 + num2;
 
 function addToShoppingList(shoppingList, newItem) {
@@ -26,13 +27,13 @@ function addToShoppingList(shoppingList, newItem) {
   return shoppingList;
 }
 
-// fuction that accepts an array and returns it with second argument
+// function that accepts an array and returns it with second argument
 // filterd out
 function removeFormShoppingList(shoppingList, item) {
   return shoppingList.filter((itemInCart) => itemInCart !== item);
 }
 
-// async function that does an api request to jsonplacholder
+// async function that does an api request to jsonplaceholder
 // returns a user corresponding with id sent as an argument
 const fetchData = async (id) => {
   let result;
@@ -47,15 +48,13 @@ const fetchData = async (id) => {
   }
 };
 
-//Martina
-
 function toRovarSprak(namn) {
-  let vokaler = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', '-'];
-  let resultat = '';
+  let vokaler = ["a", "e", "i", "o", "u", "y", "å", "ä", "ö", "-"];
+  let resultat = "";
 
   for (let i = 0; i < namn.length; i++) {
     if (!vokaler.includes(namn[i].toLowerCase())) {
-      resultat += namn[i] + 'o' + namn[i].toLowerCase();
+      resultat += namn[i] + "o" + namn[i].toLowerCase();
     } else {
       resultat += namn[i];
     }
@@ -64,12 +63,12 @@ function toRovarSprak(namn) {
   return resultat;
 }
 
-//Elodie
+//a function that clones an array
 function cloneArray(array) {
   return [...array];
 }
 
-let programmingLanguages = ['python', 'php', 'javascript', 'c#', 'R', 'swift'];
+let programmingLanguages = ["python", "php", "javascript", "c#", "R", "swift"];
 
 // exporting all functions in an object
 module.exports = {
